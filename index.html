@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Jialin Ma" />
+
+<meta name="date" content="2019-01-31" />
+
+<title>asku: a knitr engine for creating passphrase-protected content</title>
+
+<script src="index_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="index_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="index_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="index_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="index_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="index_files/navigation-1.1/tabsets.js"></script>
+<link href="index_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="index_files/highlightjs-9.12.0/highlight.js"></script>
+<link href="index_files/asku_binding-0.0.1/asku_binding.css" rel="stylesheet" />
+<script src="index_files/asku_binding-0.0.1/asku_binding.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">asku: a knitr engine for creating passphrase-protected content</h1>
+<h4 class="author"><em>Jialin Ma</em></h4>
+<h4 class="date"><em>2019-01-31</em></h4>
+
+</div>
+
+
+<div id="objective" class="section level2">
+<h2>Objective</h2>
+<p>This package is a proof-of-concept to utilize knitr code block to hide part of the content in the generated html document. For each hidden block, a question will be promoted to the user – once it is correctly answered, the actual content will be shown.</p>
+<p>Though this package is just a toy, this approach may be useful to create interactive tutorial in rmarkdown, or to create a semi-public blog post with <code>blogdown</code> package.</p>
+</div>
+<div id="installation" class="section level2">
+<h2>Installation</h2>
+<p>Use the following code to install the package.</p>
+<pre class="r"><code>devtools::install_github(&quot;Marlin-Na/asku&quot;)</code></pre>
+</div>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<p>To use the knit engine, you should load the packge</p>
+<p>You should first load the package in your rmarkdown document before using the “asku” knit engine.</p>
+<pre class="r"><code>library(&#39;asku&#39;)</code></pre>
+<pre><code>&#96;&#96;&#96;{asku, Q="What do you get if you multiple 6 by 9?", A="42"}
+**Yes, you get the right answer!**
+
+By default, you can use `markdown` syntax for the hidden content.
+For example, this is a list of things to do:
+
+- eat
+- eat
+- sleep
+&#96;&#96;&#96;</code></pre>
+<p>The code chunk above in your rmarkdown file will generate the following in html document. Try to enter the answer (it is specified as option of the code chunk)! If it is correct, the content in the code block will be displayed.</p>
+<hr />
+<div class="asku_hidden_wrapper" hidden_data="PHA+PHN0cm9uZz5ZZXMsIHlvdSBnZXQgdGhlIHJpZ2h0IGFuc3dlciE8L3N0cm9uZz48L3A+Cgo8cD5CeSBkZWZhdWx0LCB5b3UgY2FuIHVzZSA8Y29kZT5tYXJrZG93bjwvY29kZT4gc3ludGF4IGhlcmUsIHdoaWNoIG1ha2VzIGl0IGVhc2llcgp0byBmb3JtYXQgeW91ciBoaWRkZW4gY29udGVudC48L3A+Cg==" hidden_ans="NDI=">
+<form>
+What do you get if you multiple 6 by 9?
+<input type="text" name="askuA"/>
+<input type="submit" value="Enter"/>
+</form>
+</div>
+</div>
+<div id="how-does-it-work" class="section level2">
+<h2>How does it work</h2>
+<p>The <code>asku</code> function utilizes <code>htmltools</code> to generate html fragments that can be included in html documents. Then a custom knitr engine is implemented to enable writing the hidden content directly in Rmarkdown.</p>
+</div>
+<div id="warning" class="section level2">
+<h2>Warning</h2>
+<p>Currently, the hidden content is <strong>NOT</strong> encrypted. Ideally, a encryption method should be implemented with answer as the key. So that the content is encrypted on R side and decrypted in browser using the key.</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

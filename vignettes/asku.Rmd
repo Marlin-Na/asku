@@ -1,0 +1,80 @@
+---
+title: "asku: a knitr engine for creating passphrase-protected content"
+author: "Jialin Ma"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
+---
+
+## Objective
+
+This package is a proof-of-concept to utilize knitr code block to
+hide part of the content in the generated html document.
+For each hidden block, a question will be promoted to the user --
+once it is correctly answered, the actual content will be shown.
+
+Though this package is just a toy, this approach may be useful to create
+interactive tutorial in rmarkdown, or to create a semi-public blog post
+with `blogdown` package.
+
+## Installation
+
+Use the following code to install the package.
+
+```r
+devtools::install_github("Marlin-Na/asku")
+```
+
+## Example
+
+To use the knit engine, you should load the packge
+
+You should first load the package in your rmarkdown document before using the
+"asku" knit engine.
+
+```{r}
+library('asku')
+```
+
+<pre><code>&#96;&#96;&#96;{asku, Q="What do you get if you multiple 6 by 9?", A="42"}
+**Yes, you get the right answer!**
+
+By default, you can use `markdown` syntax for the hidden content.
+For example, this is a list of things to do:
+
+- eat
+- eat
+- sleep
+&#96;&#96;&#96;</code></pre>
+
+The code chunk above in your rmarkdown file will generate the following in html
+document.
+Try to enter the answer (it is specified as option of the code chunk)!
+If it is correct, the content in the code block will be displayed.
+
+-------------
+
+```{asku, Q="What do you get if you multiple 6 by 9?", A="42"}
+**Yes, you get the right answer!**
+
+By default, you can use `markdown` syntax here, which makes it easier
+to format your hidden content.
+```
+
+## How does it work
+
+The `asku` function utilizes `htmltools` to generate html fragments
+that can be included in html documents.
+Then a custom knitr engine is implemented to enable writing the hidden
+content directly in Rmarkdown.
+
+## Warning
+
+Currently, the hidden content is **NOT** encrypted. Ideally, a encryption method
+should be implemented with answer as the key. So that the content is encrypted
+on R side and decrypted in browser using the key.
