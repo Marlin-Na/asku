@@ -216,16 +216,25 @@ By default, you can use `markdown` syntax here, which makes it easier
 to format your hidden content.
 
 This is the first time that I try to create a custom knitr engine.
-I feel that the logo from Yihui's website is quite appropiate to
-describe the nature of `knitr` -- "Everything is connected".
+I feel that its name is quite appropiate to describe the nature of
+`knitr`. Things are interconnected in `knitr` -- code chunks, results
+and metadata -- instead of simply evaluating the code and put them back.
 
 ![](https://raw.githubusercontent.com/yihui/yihui.name/master/content/knitr/images/knit-logo.png)
+
+Like the universe:
+    
+> The connections between causes and effects are often much more subtle
+> and complex than we with our rough and ready understanding of the physical
+> world might naturally suppose.... You wouldn't believe it. Things, double up.
+> They parallel. Everything is chaos, but it's synchronized.
+> There's always something ready to mirror itself, life endlessly turning inward.
 
 ----------
 &#96;&#96;&#96;</code></pre>
 <p>The code chunk above in your rmarkdown file will generate the following in html document. Try to enter the answer (it is specified as option of the code chunk)! If it is correct, the content in the code block will be displayed.</p>
 <hr />
-<div class="asku_hidden_wrapper" hidden_data="PHA+PHN0cm9uZz5ZZXMsIHlvdSBnZXQgdGhlIHJpZ2h0IGFuc3dlciE8L3N0cm9uZz48L3A+Cgo8cD5CeSBkZWZhdWx0LCB5b3UgY2FuIHVzZSA8Y29kZT5tYXJrZG93bjwvY29kZT4gc3ludGF4IGhlcmUsIHdoaWNoIG1ha2VzIGl0IGVhc2llcgp0byBmb3JtYXQgeW91ciBoaWRkZW4gY29udGVudC48L3A+Cgo8cD5UaGlzIGlzIHRoZSBmaXJzdCB0aW1lIHRoYXQgSSB0cnkgdG8gY3JlYXRlIGEgY3VzdG9tIGtuaXRyIGVuZ2luZS4KSSBmZWVsIHRoYXQgdGhlIGxvZ28gZnJvbSBZaWh1aSYjMzk7cyB3ZWJzaXRlIGlzIHF1aXRlIGFwcHJvcGlhdGUgdG8KZGVzY3JpYmUgdGhlIG5hdHVyZSBvZiA8Y29kZT5rbml0cjwvY29kZT4gJm5kYXNoOyAmbGRxdW87RXZlcnl0aGluZyBpcyBjb25uZWN0ZWQmcmRxdW87LjwvcD4KCjxwPjxpbWcgc3JjPSJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20veWlodWkveWlodWkubmFtZS9tYXN0ZXIvY29udGVudC9rbml0ci9pbWFnZXMva25pdC1sb2dvLnBuZyIgYWx0PSIiLz48L3A+Cgo8aHIvPgo=" hidden_ans="NDI=">
+<div class="asku_hidden_wrapper" hidden_data="PHA+PHN0cm9uZz5ZZXMsIHlvdSBnZXQgdGhlIHJpZ2h0IGFuc3dlciE8L3N0cm9uZz48L3A+Cgo8cD5CeSBkZWZhdWx0LCB5b3UgY2FuIHVzZSA8Y29kZT5tYXJrZG93bjwvY29kZT4gc3ludGF4IGhlcmUsIHdoaWNoIG1ha2VzIGl0IGVhc2llcgp0byBmb3JtYXQgeW91ciBoaWRkZW4gY29udGVudC48L3A+Cgo8cD5UaGlzIGlzIHRoZSBmaXJzdCB0aW1lIHRoYXQgSSB0cnkgdG8gY3JlYXRlIGEgY3VzdG9tIGtuaXRyIGVuZ2luZS4KSSBmZWVsIHRoYXQgaXRzIG5hbWUgaXMgcXVpdGUgYXBwcm9waWF0ZSB0byBkZXNjcmliZSB0aGUgbmF0dXJlIG9mCjxjb2RlPmtuaXRyPC9jb2RlPi4gVGhpbmdzIGFyZSBpbnRlcmNvbm5lY3RlZCBpbiA8Y29kZT5rbml0cjwvY29kZT4gJm5kYXNoOyBjb2RlIGNodW5rcywgcmVzdWx0cwphbmQgbWV0YWRhdGEgJm5kYXNoOyBpbnN0ZWFkIG9mIHNpbXBseSBldmFsdWF0aW5nIHRoZSBjb2RlIGFuZCBwdXQgdGhlbSBiYWNrLjwvcD4KCjxwPjxpbWcgc3JjPSJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20veWlodWkveWlodWkubmFtZS9tYXN0ZXIvY29udGVudC9rbml0ci9pbWFnZXMva25pdC1sb2dvLnBuZyIgYWx0PSIiLz48L3A+Cgo8cD5MaWtlIHRoZSB1bml2ZXJzZTo8L3A+Cgo8YmxvY2txdW90ZT4KPHA+VGhlIGNvbm5lY3Rpb25zIGJldHdlZW4gY2F1c2VzIGFuZCBlZmZlY3RzIGFyZSBvZnRlbiBtdWNoIG1vcmUgc3VidGxlCmFuZCBjb21wbGV4IHRoYW4gd2Ugd2l0aCBvdXIgcm91Z2ggYW5kIHJlYWR5IHVuZGVyc3RhbmRpbmcgb2YgdGhlIHBoeXNpY2FsCndvcmxkIG1pZ2h0IG5hdHVyYWxseSBzdXBwb3NlJmhlbGxpcDsuIFlvdSB3b3VsZG4mIzM5O3QgYmVsaWV2ZSBpdC4gVGhpbmdzLCBkb3VibGUgdXAuClRoZXkgcGFyYWxsZWwuIEV2ZXJ5dGhpbmcgaXMgY2hhb3MsIGJ1dCBpdCYjMzk7cyBzeW5jaHJvbml6ZWQuClRoZXJlJiMzOTtzIGFsd2F5cyBzb21ldGhpbmcgcmVhZHkgdG8gbWlycm9yIGl0c2VsZiwgbGlmZSBlbmRsZXNzbHkgdHVybmluZyBpbndhcmQuPC9wPgo8L2Jsb2NrcXVvdGU+Cgo8aHIvPgo=" hidden_ans="NDI=">
 <form>
 What do you get if you multiple 6 by 9?
 <input type="text" name="askuA"/>
