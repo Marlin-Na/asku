@@ -1,15 +1,16 @@
 Package: asku
-Title: What the Package Does (one line, title case)
+Title: Asku
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Authors@R: person("Jialin", "Ma", email = "marlin-@gmx.cn", role = c("aut", "cre"))
+Description: Create hidden content in html document. It asks for a passphrase.
 Depends: R (>= 3.5.1)
-License: What license is it under?
+License: A-GPL3
 Encoding: UTF-8
 LazyData: true
 Import:
     knitr,
     rmarkdown,
     htmltools,
-    markdown
+    markdown,
+    RCurl
 VignetteBuilder: knitr
