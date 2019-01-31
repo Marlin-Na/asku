@@ -44,12 +44,16 @@ library('asku')
 <pre><code>&#96;&#96;&#96;{asku, Q="What do you get if you multiple 6 by 9?", A="42"}
 **Yes, you get the right answer!**
 
-By default, you can use `markdown` syntax for the hidden content.
-For example, this is a list of things to do:
+By default, you can use `markdown` syntax here, which makes it easier
+to format your hidden content.
 
-- eat
-- eat
-- sleep
+This is the first time that I try to create a custom knitr engine.
+I feel that the logo from Yihui's website is quite appropiate to
+describe the nature of `knitr` -- "Everything is connected".
+
+![](https://raw.githubusercontent.com/yihui/yihui.name/master/content/knitr/images/knit-logo.png)
+
+----------
 &#96;&#96;&#96;</code></pre>
 
 The code chunk above in your rmarkdown file will generate the following in html
@@ -64,6 +68,14 @@ If it is correct, the content in the code block will be displayed.
 
 By default, you can use `markdown` syntax here, which makes it easier
 to format your hidden content.
+
+This is the first time that I try to create a custom knitr engine.
+I feel that the logo from Yihui's website is quite appropiate to
+describe the nature of `knitr` -- "Everything is connected".
+
+![](https://raw.githubusercontent.com/yihui/yihui.name/master/content/knitr/images/knit-logo.png)
+
+----------
 ```
 
 ## How does it work
