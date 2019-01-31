@@ -48,10 +48,19 @@ By default, you can use `markdown` syntax here, which makes it easier
 to format your hidden content.
 
 This is the first time that I try to create a custom knitr engine.
-I feel that the logo from Yihui's website is quite appropiate to
-describe the nature of `knitr` -- "Everything is connected".
+I feel that its name is quite appropiate to describe the nature of
+`knitr`. Things are interconnected in `knitr` -- code chunks, results
+and metadata -- instead of simply evaluating the code and put them back.
 
 ![](https://raw.githubusercontent.com/yihui/yihui.name/master/content/knitr/images/knit-logo.png)
+
+Like the universe:
+    
+> The connections between causes and effects are often much more subtle
+> and complex than we with our rough and ready understanding of the physical
+> world might naturally suppose.... You wouldn't believe it. Things, double up.
+> They parallel. Everything is chaos, but it's synchronized.
+> There's always something ready to mirror itself, life endlessly turning inward.
 
 ----------
 &#96;&#96;&#96;</code></pre>
@@ -70,10 +79,19 @@ By default, you can use `markdown` syntax here, which makes it easier
 to format your hidden content.
 
 This is the first time that I try to create a custom knitr engine.
-I feel that the logo from Yihui's website is quite appropiate to
-describe the nature of `knitr` -- "Everything is connected".
+I feel that its name is quite appropiate to describe the nature of
+`knitr`. Things are interconnected in `knitr` -- code chunks, results
+and metadata -- instead of simply evaluating the code and put them back.
 
 ![](https://raw.githubusercontent.com/yihui/yihui.name/master/content/knitr/images/knit-logo.png)
+
+Like the universe:
+    
+> The connections between causes and effects are often much more subtle
+> and complex than we with our rough and ready understanding of the physical
+> world might naturally suppose.... You wouldn't believe it. Things, double up.
+> They parallel. Everything is chaos, but it's synchronized.
+> There's always something ready to mirror itself, life endlessly turning inward.
 
 ----------
 ```
