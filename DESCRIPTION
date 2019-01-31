@@ -3,11 +3,11 @@ Title: Asku
 Version: 0.0.0.9000
 Authors@R: person("Jialin", "Ma", email = "marlin-@gmx.cn", role = c("aut", "cre"))
 Description: Create hidden content in html document. It asks for a passphrase.
-Depends: R (>= 3.5.1)
-License: A-GPL3
+Depends: R (>= 3.5.0)
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Import:
+Imports:
     knitr,
     rmarkdown,
     htmltools,
