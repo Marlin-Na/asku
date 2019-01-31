@@ -32,10 +32,8 @@ devtools::install_github("Marlin-Na/asku")
 
 ## Example
 
-To use the knit engine, you should load the packge
-
-You should first load the package in your rmarkdown document before using the
-"asku" knit engine.
+To use the knit engine, you should first load the package in your rmarkdown
+document before using the "asku" knit engine.
 
 ```{r}
 library('asku')
