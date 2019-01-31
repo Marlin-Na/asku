@@ -1,5 +1,5 @@
 ---
-title: "asku: a knitr engine for creating hidden content"
+title: "asku: a knitr engine for creating passphrase-protected content"
 author: "Jialin Ma"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette

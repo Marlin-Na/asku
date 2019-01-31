@@ -2,7 +2,7 @@ Package: asku
 Title: Asku
 Version: 0.0.0.9000
 Authors@R: person("Jialin", "Ma", email = "marlin-@gmx.cn", role = c("aut", "cre"))
-Description: Create hidden content in html document. It asks for a passphrase.
+Description: A knitr engine for creating passphrase-protected content.
 Depends: R (>= 3.5.0)
 License: GPL-3
 Encoding: UTF-8
