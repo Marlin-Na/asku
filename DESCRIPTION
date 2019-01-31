@@ -1,6 +1,6 @@
 Package: asku
 Title: Asku
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: person("Jialin", "Ma", email = "marlin-@gmx.cn", role = c("aut", "cre"))
 Description: A knitr engine for creating passphrase-protected content.
 Depends: R (>= 3.5.0)
